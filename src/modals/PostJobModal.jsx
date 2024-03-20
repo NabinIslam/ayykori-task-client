@@ -10,7 +10,10 @@ const PostJobModal = ({ openJobPostModal, setOpenJobPostModal, refetch }) => {
 
   const handlePostJob = data => {
     axios
-      .post('http://localhost:3000/api/jobs', data)
+      .post(
+        'https://ayykori-task-server-production.up.railway.app/api/jobs',
+        data
+      )
       .then(res => {
         if (res.status === 200) {
           reset();

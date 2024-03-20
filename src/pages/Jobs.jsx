@@ -24,7 +24,9 @@ const Jobs = () => {
   } = useQuery({
     queryKey: 'jobs',
     queryFn: () =>
-      fetch('http://localhost:3000/api/jobs').then(res => res.json()),
+      fetch(
+        'https://ayykori-task-server-production.up.railway.app/api/jobs'
+      ).then(res => res.json()),
   });
 
   if (isLoading) return <LoadingSpinner />;
@@ -65,10 +67,9 @@ const Jobs = () => {
               <a
                 href="#"
                 className="bg-[#11998E]  hover:bg-[#1e4e4abb] duration-200 text-white font-bold py-2 px-4 rounded"
-              
-                onClick={()=> {
-                  setJobData(job)
-                  setOpenApplyModal(true)
+                onClick={() => {
+                  setJobData(job);
+                  setOpenApplyModal(true);
                 }}
               >
                 Apply Now
@@ -77,7 +78,9 @@ const Jobs = () => {
                 className="text-red-600 hover:bg-slate-200 p-2 text-4xl rounded-full cursor-pointer"
                 onClick={() => {
                   axios
-                    .delete(`http://localhost:3000/api/jobs/delete/${job._id}`)
+                    .delete(
+                      `https://ayykori-task-server-production.up.railway.app/api/jobs/delete/${job._id}`
+                    )
                     .then(res => {
                       if (res.status === 200) {
                         refetch();

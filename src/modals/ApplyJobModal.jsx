@@ -30,13 +30,16 @@ const ApplyJobModal = ({ jobData, openApplyModal, setOpenApplyModal }) => {
             appliedJob: jobData._id,
           };
 
-          fetch(`http://localhost:3000/api/candidates`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(application),
-          })
+          fetch(
+            `https://ayykori-task-server-production.up.railway.app/api/candidates`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(application),
+            }
+          )
             .then(res => res.json())
             .then(data => {
               if (data.success) {

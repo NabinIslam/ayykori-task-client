@@ -9,9 +9,9 @@ const Shortlisted = () => {
   } = useQuery({
     queryKey: 'candidates',
     queryFn: () =>
-      fetch('http://localhost:3000/api/candidates?status=Shortlisted').then(
-        res => res.json()
-      ),
+      fetch(
+        'https://ayykori-task-server-production.up.railway.app/api/candidates?status=Shortlisted'
+      ).then(res => res.json()),
   });
 
   if (isLoading) return <LoadingSpinner />;

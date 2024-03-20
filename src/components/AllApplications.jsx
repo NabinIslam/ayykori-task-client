@@ -13,23 +13,28 @@ const AllApplications = () => {
   } = useQuery({
     queryKey: 'candidates',
     queryFn: () =>
-      fetch('http://localhost:3000/api/candidates').then(res => res.json()),
+      fetch(
+        'https://ayykori-task-server-production.up.railway.app/api/candidates'
+      ).then(res => res.json()),
   });
   const [status, setStatus] = useState('');
   const [candidateData, setCandidateData] = useState('');
 
   const handleUpdateCandidate = () => {
     axios
-      .put(`http://localhost:3000/api/candidates/65f9ad1a326e7523baced5ea`, {
-        name: candidateData.name,
-        email: candidateData.email,
-        gender: candidateData.gender,
-        photo: candidateData.photo,
-        experience: candidateData.experience,
-        expectedSalary: candidateData.expectedSalary,
-        status: status,
-        appliedJob: candidateData?.appliedJob?._id,
-      })
+      .put(
+        `https://ayykori-task-server-production.up.railway.app/api/candidates/65f9ad1a326e7523baced5ea`,
+        {
+          name: candidateData.name,
+          email: candidateData.email,
+          gender: candidateData.gender,
+          photo: candidateData.photo,
+          experience: candidateData.experience,
+          expectedSalary: candidateData.expectedSalary,
+          status: status,
+          appliedJob: candidateData?.appliedJob?._id,
+        }
+      )
       .then(res => {
         if (res.status === 200) {
           refetch();

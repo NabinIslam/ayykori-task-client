@@ -20,7 +20,7 @@ const EditJobModal = ({
   // const { data: job = {}, isLoading } = useQuery({
   //   queryKey: 'job',
   //   queryFn: () =>
-  //     fetch(`http://localhost:3000/api/jobs/id/${jobData?._id}`).then(res =>
+  //     fetch(`https://ayykori-task-server-production.up.railway.app/api/jobs/id/${jobData?._id}`).then(res =>
   //       res.json()
   //     ),
   // });
